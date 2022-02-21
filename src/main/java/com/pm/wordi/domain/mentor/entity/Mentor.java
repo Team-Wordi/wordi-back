@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.pm.wordi.controller.dto.MentorDto.*;
 
 @Entity
 @Getter
@@ -138,25 +137,4 @@ public class Mentor extends BaseTimeEntity {
         this.status = status;
     }
 
-    public void updateProfile(ProfileReq profileReq) {
-        this.nation = profileReq.getMentorNation();
-        this.startDate = profileReq.getStartDate();
-        this.endDate = profileReq.getEndDate();
-        this.isProgress = profileReq.isProgress();
-        this.profileIntroduction = profileReq.getProfileIntroduction();
-        this.introduction = profileReq.getIntroduction();
-        this.price = profileReq.getPrice();
-    }
-
-    public void updateProfileImage(String profileImageUrl) {
-        this.profileImageUrl = profileImageUrl;
-    }
-
-    public void updateOnStatus() {
-        this.status = BaseStatus.ACTIVE;
-    }
-
-    public void updateOffStatus() {
-        this.status = BaseStatus.INACTIVE;
-    }
 }

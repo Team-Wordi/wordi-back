@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.pm.wordi.controller.dto.UserDto.*;
-
 
 @Entity
 @Getter
@@ -102,33 +100,6 @@ public class User extends BaseTimeEntity {
         this.isOAuth2 = isOAuth2;
         this.status = baseStatus;
 
-    }
-
-    public AccountRes toAccountRes() {
-        return AccountRes.builder()
-                .email(this.email)
-                .phoneNumber(this.phoneNumber)
-                .build();
-    }
-
-    public void updateAccount(String email, String phoneNumber) {
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void updatePassword(String password) {
-        this.password = password;
-    }
-
-    public void updateProfile(ProfileReq profileReq) {
-        this.nickname = profileReq.getNickname();
-        this.nation1 = profileReq.getNation1();
-        this.nation2 = profileReq.getNation2();
-        this.nation3 = profileReq.getNation3();
-    }
-
-    public void updateDeleteStatus() {
-        this.status = BaseStatus.INACTIVE;
     }
 
 }

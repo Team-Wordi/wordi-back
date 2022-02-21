@@ -29,7 +29,4 @@ public class UserKeyword {
         this.keyword = keyword;
     }
 
-    public void updateUser(User user) {
-        this.user = user;
-    }
 }
