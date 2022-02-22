@@ -27,7 +27,7 @@ public class Mentor extends BaseTimeEntity {
     @Column(name = "mentorId")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
 
@@ -43,98 +43,31 @@ public class Mentor extends BaseTimeEntity {
     @OneToMany(mappedBy = "mentor")
     private List<Mentoring> mentoringList = new ArrayList<>();
 
-    @Column(name = "mentorNation")
     private String nation;
 
     private LocalDate startDate;
 
     private LocalDate endDate;
 
-    private boolean isProgress;
-
     private String profileImageUrl;
 
-    private String profileIntroduction;
+    private Long price;
+
+    private String introductionTitle;
 
     private String introduction;
-
-    private Long price;
 
     private String certificationName;
 
     private String certificationUrl;
 
+    private String openChatUrl;
+
     @Enumerated(EnumType.STRING)
-    private MentorLevel mentorLevel;
+    private MentorRole role;
 
     @Enumerated(EnumType.STRING)
     private BaseStatus status;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Mentor mentor = (Mentor) o;
-        return isProgress == mentor.isProgress && Objects.equals(id, mentor.id) && Objects.equals(user, mentor.user)
-                && Objects.equals(mentorKeywordList, mentor.mentorKeywordList)
-                && Objects.equals(mentorScheduleList, mentor.mentorScheduleList)
-                && Objects.equals(reviewList, mentor.reviewList) && Objects.equals(mentoringList, mentor.mentoringList)
-                && Objects.equals(nation, mentor.nation) && Objects.equals(startDate, mentor.startDate)
-                && Objects.equals(endDate, mentor.endDate) && Objects.equals(profileImageUrl, mentor.profileImageUrl)
-                && Objects.equals(profileIntroduction, mentor.profileIntroduction)
-                && Objects.equals(introduction, mentor.introduction) && Objects.equals(price, mentor.price)
-                && Objects.equals(certificationName, mentor.certificationName)
-                && Objects.equals(certificationUrl, mentor.certificationUrl) && mentorLevel == mentor.mentorLevel
-                && status == mentor.status;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, user, mentorKeywordList, mentorScheduleList, reviewList, mentoringList,
-                nation, startDate, endDate, isProgress, profileImageUrl, profileIntroduction, introduction,
-                price, certificationName, certificationUrl, mentorLevel, status);
-    }
-
-    // == 연관관계 편의 메서드
-    public void addMentorKeywordList(MentorKeyword mentorKeyword) {
-        mentorKeyword.updateMentor(this);
-        mentorKeywordList.add(mentorKeyword);
-    }
-
-    public void addMentorScheduleList(MentorSchedule mentorSchedule) {
-        mentorSchedule.updateMentor(this);
-        mentorScheduleList.add(mentorSchedule);
-    }
-
-    public void addReviewList(Review review) {
-        review.updateMentor(this);
-        reviewList.add(review);
-    }
-
-    public void addMentoringList(Mentoring mentoring) {
-        mentoring.updateMentor(this);
-        mentoringList.add(mentoring);
-    }
-
-    // == 생성자 ==
-
-    @Builder
-    public Mentor(User user, String nation, LocalDate startDate, LocalDate endDate, boolean isProgress,
-                  String profileImageUrl, String profileIntroduction, String introduction, Long price,
-                  String certificationName, String certificationUrl, MentorLevel mentorLevel, BaseStatus status) {
-        this.user = user;
-        this.nation = nation;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.isProgress = isProgress;
-        this.profileImageUrl = profileImageUrl;
-        this.profileIntroduction = profileIntroduction;
-        this.introduction = introduction;
-        this.price = price;
-        this.certificationName = certificationName;
-        this.certificationUrl = certificationUrl;
-        this.mentorLevel = mentorLevel;
-        this.status = status;
-    }
 
 }

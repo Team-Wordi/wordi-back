@@ -27,79 +27,30 @@ public class User extends BaseTimeEntity {
     @OneToMany(mappedBy = "user")
     private List<UserKeyword> userKeywordList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<UserKeyword> userNationList = new ArrayList<>();
+
     private String email;
 
     private String password;
 
     private String phoneNumber;
 
+    private String userName;
+
     private String nickname;
 
-    @Column(name = "userNation1")
-    private String nation1;
-
-    @Column(name = "userNation2")
-    private String nation2;
-
-    @Column(name = "userNation3")
-    private String nation3;
-
-    @Enumerated(EnumType.STRING)
-    private UserLevel userLevel;
-
-    private boolean isMentor;
+    private String fcmToken;
 
     private boolean isOAuth2;
+
+    private boolean isLogined;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     @Enumerated(EnumType.STRING)
     private BaseStatus status;
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return isMentor == user.isMentor && isOAuth2 == user.isOAuth2 && Objects.equals(id, user.id)
-                && Objects.equals(userKeywordList, user.userKeywordList) && Objects.equals(email, user.email)
-                && Objects.equals(password, user.password) && Objects.equals(phoneNumber, user.phoneNumber)
-                && Objects.equals(nickname, user.nickname) && Objects.equals(nation1, user.nation1)
-                && Objects.equals(nation2, user.nation2) && Objects.equals(nation3, user.nation3)
-                && userLevel == user.userLevel && status == user.status;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, userKeywordList, email, password, phoneNumber, nickname,
-                nation1, nation2, nation3, userLevel, isMentor, isOAuth2, status);
-    }
-
-    // == 연관관계 편의 메서드 ==
-    public void addKeyword(UserKeyword userKeyword) {
-        userKeyword.updateUser(this);
-        userKeywordList.add(userKeyword);
-    }
-
-
-    // == 생성자 ==
-
-    @Builder
-    public User(Long id, String email, String password, String phoneNumber, String nickname,
-                String nation1, String nation2, String nation3, UserLevel userLevel,
-                boolean isMentor, boolean isOAuth2, BaseStatus baseStatus ) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.nickname = nickname;
-        this.nation1 = nation1;
-        this.nation2 = nation2;
-        this.nation3 = nation3;
-        this.userLevel = userLevel;
-        this.isMentor = isMentor;
-        this.isOAuth2 = isOAuth2;
-        this.status = baseStatus;
-
-    }
 
 }

@@ -1,5 +1,7 @@
 package com.pm.wordi.domain.mentor.entity;
 
+import com.pm.wordi.domain.BaseStatus;
+import com.pm.wordi.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MentorSchedule {
+public class MentorSchedule extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,14 +27,7 @@ public class MentorSchedule {
 
     private String schedule;
 
-    public void updateMentor(Mentor mentor) {
-        this.mentor = mentor;
-    }
+    @Enumerated(EnumType.STRING)
+    private BaseStatus status;
 
-    @Builder
-    public MentorSchedule(Mentor mentor, String week, String schedule) {
-        this.mentor = mentor;
-        this.week = week;
-        this.schedule = schedule;
-    }
 }

@@ -5,7 +5,6 @@ import com.pm.wordi.domain.BaseTimeEntity;
 import com.pm.wordi.domain.mentor.entity.Mentor;
 import com.pm.wordi.domain.user.entity.User;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -30,11 +29,12 @@ public class Mentoring extends BaseTimeEntity {
     @JoinColumn(name = "mentorId")
     private Mentor mentor;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "paymentId")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "mentoring")
     private Payment payment;
 
     private Long price;
+
+    private String questions;
 
     private LocalDateTime requestSchedule1;
 
@@ -42,34 +42,15 @@ public class Mentoring extends BaseTimeEntity {
 
     private LocalDateTime selectedSchedule;
 
-    private String questions;
+    private String refusalMessage;
+
+    private boolean isReviewed;
 
     @Enumerated(EnumType.STRING)
-    private MentoringStatus mentoringStatus;
-
-    private String refusalMessage;
+    private MentoringProcess processed;
 
     @Enumerated(EnumType.STRING)
     private BaseStatus status;
 
-
-    public void updateMentor(Mentor mentor) {
-        this.mentor = mentor;
-    }
-
-    @Builder
-    public Mentoring(User user, Mentor mentor, Payment payment, Long price,
-                     LocalDateTime requestSchedule1, LocalDateTime requestSchedule2,
-                     String questions, MentoringStatus mentoringStatus, BaseStatus status) {
-        this.user = user;
-        this.mentor = mentor;
-        this.payment = payment;
-        this.price = price;
-        this.requestSchedule1 = requestSchedule1;
-        this.requestSchedule2 = requestSchedule2;
-        this.questions = questions;
-        this.mentoringStatus = mentoringStatus;
-        this.status = status;
-    }
 
 }

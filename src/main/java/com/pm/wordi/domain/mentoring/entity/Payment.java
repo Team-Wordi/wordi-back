@@ -20,6 +20,10 @@ public class Payment extends BaseTimeEntity {
     @Column(name = "paymentId")
     private Long id;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mentoringId")
+    private Mentoring mentoring;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
@@ -35,22 +39,10 @@ public class Payment extends BaseTimeEntity {
     private String accountNumber;
 
     @Enumerated(EnumType.STRING)
-    private PaymentStatus paymentStatus;
+    private PaymentProcess paymentStatus;
 
     @Enumerated(EnumType.STRING)
     private BaseStatus status;
 
-    @Builder
-    public Payment(User user, String orderNumber, Long price, String depositor, String bankCode,
-                   String accountNumber, PaymentStatus paymentStatus, BaseStatus status) {
-        this.user = user;
-        this.orderNumber = orderNumber;
-        this.price = price;
-        this.depositor = depositor;
-        this.bankCode = bankCode;
-        this.accountNumber = accountNumber;
-        this.paymentStatus = paymentStatus;
-        this.status = status;
-    }
 
 }
