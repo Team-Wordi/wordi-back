@@ -16,15 +16,15 @@ public class UserKeyword extends BaseTimeEntity  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userKeywordId")
+    @Column(name = "USER_KEYWORD_ID")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "USER_ID")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "keywordId")
+    @JoinColumn(name = "KEYWORD_ID")
     private Keyword keyword;
 
     @Enumerated(EnumType.STRING)

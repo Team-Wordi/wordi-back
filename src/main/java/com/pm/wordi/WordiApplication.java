@@ -1,6 +1,5 @@
 package com.pm.wordi;
 
-import com.pm.wordi.commons.properties.AwsProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -8,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @SpringBootApplication
-@EnableConfigurationProperties(value = {AwsProperties.class})
+// @EnableConfigurationProperties(value = {AwsProperties.class})
 public class WordiApplication {
 
 	public static void main(String[] args) {

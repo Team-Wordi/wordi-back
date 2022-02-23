@@ -13,7 +13,7 @@ public class Keyword extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userKeywordId")
+    @Column(name = "KEYWORD_ID")
     private Long id;
 
     private String keywordName;

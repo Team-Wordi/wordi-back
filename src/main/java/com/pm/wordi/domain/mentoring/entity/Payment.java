@@ -17,15 +17,15 @@ public class Payment extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "paymentId")
+    @Column(name = "PAYMENT_ID")
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mentoringId")
+    @JoinColumn(name = "MENTORING_ID")
     private Mentoring mentoring;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "USER_ID")
     private User user;
 
     private String orderNumber;

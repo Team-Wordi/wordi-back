@@ -10,15 +10,15 @@ public class MentorLike extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mentorLikeId")
+    @Column(name = "MENTOR_LIKE_ID")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "userId")
+    @Column(name = "USER_ID")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "mentorId")
+    @Column(name = "MENTOR_ID")
     private Mentor mentor;
 
     @Enumerated(EnumType.STRING)

@@ -10,15 +10,15 @@ public class MentorScore extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mentorScoreId")
+    @Column(name = "MENTOR_SCORE_ID")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "userId")
+    @Column(name = "USER_ID")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "mentorId")
+    @Column(name = "MENTOR_ID")
     private Mentor mentor;
 
     private Long score;

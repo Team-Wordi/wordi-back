@@ -15,15 +15,15 @@ import javax.persistence.*;
 public class UserNation extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userNationId")
+    @Column(name = "USER_NATION_ID")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "USER_ID")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "nationId")
+    @JoinColumn(name = "NATION_ID")
     private Nation nation;
 
     private BaseStatus status;

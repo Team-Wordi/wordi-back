@@ -16,11 +16,11 @@ public class MentorSchedule extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mentorScheduleId")
+    @Column(name = "MENTOR_SCHEDULE_ID")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mentorId")
+    @JoinColumn(name = "MENTOR_ID")
     private Mentor mentor;
 
     private String week;

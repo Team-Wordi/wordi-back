@@ -17,15 +17,15 @@ public class MentorKeyword extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mentorKeywordId")
+    @Column(name = "MENTOR_KEYWORD_ID")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mentorId")
+    @JoinColumn(name = "MENTOR_ID")
     private Mentor mentor;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "keywordId")
+    @JoinColumn(name = "KEYWORD_ID")
     private Keyword keyword;
 
     @Enumerated(EnumType.STRING)

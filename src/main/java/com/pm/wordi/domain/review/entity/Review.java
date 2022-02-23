@@ -20,19 +20,19 @@ public class Review extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reviewId")
+    @Column(name = "REVIEW_ID")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "USER_ID")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mentorId")
+    @JoinColumn(name = "MENTOR_ID")
     private Mentor mentor;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mentoringId")
+    @JoinColumn(name = "MENTORING_ID")
     private Mentoring mentoring;
 
     private String content;

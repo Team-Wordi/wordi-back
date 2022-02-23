@@ -24,24 +24,24 @@ public class Mentor extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mentorId")
+    @Column(name = "MENTOR_ID")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "USER_ID")
     private User user;
 
-    @OneToMany(mappedBy = "mentor")
-    private List<MentorKeyword> mentorKeywordList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "mentor")
-    private List<MentorSchedule> mentorScheduleList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "mentor")
-    private List<Review> reviewList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "mentor")
-    private List<Mentoring> mentoringList = new ArrayList<>();
+//    @OneToMany(mappedBy = "mentor")
+//    private List<MentorKeyword> keywordList = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "mentor")
+//    private List<MentorSchedule> scheduleList = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "mentor")
+//    private List<Mentoring> mentoringList = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "mentor")
+//    private List<Review> reviewList = new ArrayList<>();
 
     private String nation;
 
