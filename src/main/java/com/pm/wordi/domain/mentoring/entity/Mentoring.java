@@ -1,7 +1,7 @@
 package com.pm.wordi.domain.mentoring.entity;
 
-import com.pm.wordi.commons.utils.constants.entity.MentoringProcess;
-import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
+import com.pm.wordi.domain.constants.MentoringProcess;
+import com.pm.wordi.domain.constants.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
 import com.pm.wordi.domain.mentor.entity.Mentor;
 import com.pm.wordi.domain.user.entity.User;

@@ -1,8 +1,8 @@
 package com.pm.wordi.domain.mentor.entity;
 
-import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
+import com.pm.wordi.domain.constants.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
-import com.pm.wordi.commons.utils.constants.entity.MentorRole;
+import com.pm.wordi.domain.constants.MentorRole;
 import com.pm.wordi.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;

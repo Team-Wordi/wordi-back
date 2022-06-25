@@ -1,7 +1,7 @@
 package com.pm.wordi.domain.user.entity;
 
-import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
-import com.pm.wordi.commons.utils.constants.entity.NoticeClassfication;
+import com.pm.wordi.domain.constants.BaseStatus;
+import com.pm.wordi.domain.constants.NoticeClassfication;
 import com.pm.wordi.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;

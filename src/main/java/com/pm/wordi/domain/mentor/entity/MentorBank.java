@@ -1,8 +1,7 @@
 package com.pm.wordi.domain.mentor.entity;
 
-import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
+import com.pm.wordi.domain.constants.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
-import com.pm.wordi.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
