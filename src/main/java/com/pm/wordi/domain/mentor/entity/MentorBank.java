@@ -1,8 +1,8 @@
-package com.pm.wordi.domain.user.entity;
+package com.pm.wordi.domain.mentor.entity;
 
-import com.pm.wordi.commons.utils.constants.entity.Nation;
 import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
+import com.pm.wordi.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,18 +12,22 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserNation extends BaseTimeEntity {
+public class MentorBank extends BaseTimeEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userNationId")
+    @Column(name = "mentorBankId")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private User user;
+    @JoinColumn(name = "mentorId")
+    private Mentor mentor;
 
-    @Enumerated(EnumType.STRING)
-    private Nation nation;
+    private String bankName;
+
+    private String bankAccount;
+
+    private String depositor;
 
     @Enumerated(EnumType.STRING)
     private BaseStatus status;

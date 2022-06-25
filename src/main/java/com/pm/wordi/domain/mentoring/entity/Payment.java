@@ -1,10 +1,10 @@
 package com.pm.wordi.domain.mentoring.entity;
 
-import com.pm.wordi.domain.BaseStatus;
+import com.pm.wordi.commons.utils.constants.entity.PaymentProcess;
+import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
 import com.pm.wordi.domain.user.entity.User;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -17,15 +17,15 @@ public class Payment extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PAYMENT_ID")
+    @Column(name = "paymentId")
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MENTORING_ID")
+    @JoinColumn(name = "mentoringId")
     private Mentoring mentoring;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "userId")
     private User user;
 
     private String orderNumber;

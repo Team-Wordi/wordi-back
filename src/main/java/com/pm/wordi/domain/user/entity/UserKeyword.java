@@ -1,8 +1,8 @@
 package com.pm.wordi.domain.user.entity;
 
-import com.pm.wordi.domain.BaseStatus;
+import com.pm.wordi.commons.utils.constants.entity.Keyword;
+import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
-import com.pm.wordi.domain.Keyword;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,15 +16,14 @@ public class UserKeyword extends BaseTimeEntity  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "USER_KEYWORD_ID")
+    @Column(name = "userKeywordId")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "userId")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "KEYWORD_ID")
+    @Enumerated(EnumType.STRING)
     private Keyword keyword;
 
     @Enumerated(EnumType.STRING)

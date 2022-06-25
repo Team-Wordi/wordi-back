@@ -1,6 +1,6 @@
 package com.pm.wordi.domain.mentor.entity;
 
-import com.pm.wordi.domain.BaseStatus;
+import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
 import com.pm.wordi.domain.user.entity.User;
 
@@ -10,15 +10,15 @@ public class MentorLike extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MENTOR_LIKE_ID")
+    @Column(name = "mentorLikeId")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "USER_ID")
+    @Column(name = "userId")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "MENTOR_ID")
+    @Column(name = "mentorId")
     private Mentor mentor;
 
     @Enumerated(EnumType.STRING)

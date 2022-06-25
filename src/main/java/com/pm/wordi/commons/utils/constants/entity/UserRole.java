@@ -1,4 +1,4 @@
-package com.pm.wordi.domain.user.entity;
+package com.pm.wordi.commons.utils.constants.entity;
 
 public enum UserRole {
     NORMAL, ADMIN, DORMANT, SUSPENDED

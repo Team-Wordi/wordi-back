@@ -1,9 +1,8 @@
 package com.pm.wordi.domain.mentor.entity;
 
-import com.pm.wordi.domain.BaseStatus;
+import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -16,11 +15,11 @@ public class MentorSchedule extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MENTOR_SCHEDULE_ID")
+    @Column(name = "mentorScheduleId")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MENTOR_ID")
+    @JoinColumn(name = "mentorId")
     private Mentor mentor;
 
     private String week;

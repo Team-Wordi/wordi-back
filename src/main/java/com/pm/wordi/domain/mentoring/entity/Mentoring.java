@@ -1,9 +1,9 @@
 package com.pm.wordi.domain.mentoring.entity;
 
-import com.pm.wordi.domain.BaseStatus;
+import com.pm.wordi.commons.utils.constants.entity.MentoringProcess;
+import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
 import com.pm.wordi.domain.mentor.entity.Mentor;
-import com.pm.wordi.domain.review.entity.Review;
 import com.pm.wordi.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -19,15 +19,15 @@ public class Mentoring extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MENTORING_ID")
+    @Column(name = "mentoringId")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "userId")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MENTOR_ID")
+    @JoinColumn(name = "mentorId")
     private Mentor mentor;
 
 //    @OneToOne(mappedBy = "mentoring")

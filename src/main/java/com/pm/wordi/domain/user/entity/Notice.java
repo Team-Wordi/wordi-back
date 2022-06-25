@@ -1,6 +1,7 @@
 package com.pm.wordi.domain.user.entity;
 
-import com.pm.wordi.domain.BaseStatus;
+import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
+import com.pm.wordi.commons.utils.constants.entity.NoticeClassfication;
 import com.pm.wordi.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -15,12 +16,15 @@ public class Notice extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "NOTICE_ID")
+    @Column(name = "noticeId")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "userId")
     private User user;
+
+    @Enumerated(EnumType.STRING)
+    private NoticeClassfication classfication;
 
     private String content;
 

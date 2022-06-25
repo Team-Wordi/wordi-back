@@ -1,4 +1,4 @@
-package com.pm.wordi.domain.user.entity;
+package com.pm.wordi.domain.mentor.entity;
 
 import com.pm.wordi.commons.utils.constants.entity.Nation;
 import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
@@ -12,19 +12,22 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserNation extends BaseTimeEntity {
+public class MentorNation extends BaseTimeEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userNationId")
+    @Column(name = "mentorNationId")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private User user;
+    @JoinColumn(name = "mentorId")
+    private Mentor mentor;
 
     @Enumerated(EnumType.STRING)
     private Nation nation;
 
     @Enumerated(EnumType.STRING)
     private BaseStatus status;
+
+
 }

@@ -1,13 +1,12 @@
 package com.pm.wordi.domain.review.entity;
 
 
-import com.pm.wordi.domain.BaseStatus;
+import com.pm.wordi.commons.utils.constants.entity.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
 import com.pm.wordi.domain.mentor.entity.Mentor;
 import com.pm.wordi.domain.mentoring.entity.Mentoring;
 import com.pm.wordi.domain.user.entity.User;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,20 +19,22 @@ public class Review extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "REVIEW_ID")
+    @Column(name = "reviewId")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "userId")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MENTOR_ID")
+    @JoinColumn(name = "mentorId")
     private Mentor mentor;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MENTORING_ID")
+    @JoinColumn(name = "mentoringId")
     private Mentoring mentoring;
+
+    private Integer score;
 
     private String content;
 
