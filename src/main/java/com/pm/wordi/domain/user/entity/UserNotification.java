@@ -1,6 +1,7 @@
-package com.pm.wordi.domain.mentor.entity;
+package com.pm.wordi.domain.user.entity;
 
-import com.pm.wordi.domain.constants.BaseStatus;
+import com.pm.wordi.domain.common.BaseStatus;
+import com.pm.wordi.domain.common.NoticeClassfication;
 import com.pm.wordi.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -11,22 +12,22 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MentorSchedule extends BaseTimeEntity {
+public class UserNotification extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mentorScheduleId")
+    @Column(name = "userNotificationId")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mentorId")
-    private Mentor mentor;
+    @JoinColumn(name = "userId")
+    private User user;
 
-    private String week;
+    @Enumerated(EnumType.STRING)
+    private NoticeClassfication classfication;
 
-    private String schedule;
+    private String content;
 
     @Enumerated(EnumType.STRING)
     private BaseStatus status;
-
 }

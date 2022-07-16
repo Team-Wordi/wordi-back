@@ -1,7 +1,7 @@
 package com.pm.wordi.domain.review.entity;
 
 
-import com.pm.wordi.domain.constants.BaseStatus;
+import com.pm.wordi.domain.common.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
 import com.pm.wordi.domain.mentor.entity.Mentor;
 import com.pm.wordi.domain.mentoring.entity.Mentoring;

@@ -1,8 +1,8 @@
-package com.pm.wordi.domain.mentor.entity;
+package com.pm.wordi.domain.user.entity;
 
-import com.pm.wordi.domain.constants.Nation;
-import com.pm.wordi.domain.constants.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
+import com.pm.wordi.domain.common.BaseStatus;
+import com.pm.wordi.domain.common.NoticeClassfication;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,22 +12,17 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MentorNation extends BaseTimeEntity {
-
+public class UserNotificationEnable extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mentorNationId")
+    @Column(name = "userNotificationEnable")
     private Long id;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mentorId")
-    private Mentor mentor;
+    @JoinColumn(name = "userId")
+    private User user;
+    private boolean push;
 
-    @Enumerated(EnumType.STRING)
-    private Nation nation;
-
+    private boolean event;
     @Enumerated(EnumType.STRING)
     private BaseStatus status;
-
-
 }

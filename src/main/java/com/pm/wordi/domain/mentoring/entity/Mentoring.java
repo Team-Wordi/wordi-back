@@ -1,7 +1,7 @@
 package com.pm.wordi.domain.mentoring.entity;
 
-import com.pm.wordi.domain.constants.MentoringProcess;
-import com.pm.wordi.domain.constants.BaseStatus;
+import com.pm.wordi.domain.common.MentoringProcess;
+import com.pm.wordi.domain.common.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
 import com.pm.wordi.domain.mentor.entity.Mentor;
 import com.pm.wordi.domain.user.entity.User;
@@ -29,12 +29,6 @@ public class Mentoring extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mentorId")
     private Mentor mentor;
-
-//    @OneToOne(mappedBy = "mentoring")
-//    private Payment payment;
-//
-//    @OneToOne(mappedBy = "mentoring")
-//    private Review review;
 
     private Long price;
 

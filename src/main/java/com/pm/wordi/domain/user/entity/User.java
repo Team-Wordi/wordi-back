@@ -1,7 +1,7 @@
 package com.pm.wordi.domain.user.entity;
 
-import com.pm.wordi.domain.constants.UserRole;
-import com.pm.wordi.domain.constants.BaseStatus;
+import com.pm.wordi.domain.common.UserRole;
+import com.pm.wordi.domain.common.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -19,24 +19,6 @@ public class User extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
     private Long id;
-
-//    @OneToMany(mappedBy = "user")
-//    private List<UserKeyword> keywordList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<UserNation> nationList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Mentoring> mentoringList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Review> reviewList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Payment> paymentList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Notice> noticeList = new ArrayList<>();
 
     private String email;
 
@@ -56,6 +38,10 @@ public class User extends BaseTimeEntity {
 
     @Enumerated(EnumType.STRING)
     private UserRole role;
+
+    private String likeNations;
+
+    private String keywords;
 
     @Enumerated(EnumType.STRING)
     private BaseStatus status;

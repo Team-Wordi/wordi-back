@@ -1,8 +1,8 @@
 package com.pm.wordi.domain.mentor.entity;
 
-import com.pm.wordi.domain.constants.BaseStatus;
+import com.pm.wordi.domain.common.BaseStatus;
 import com.pm.wordi.domain.BaseTimeEntity;
-import com.pm.wordi.domain.constants.MentorRole;
+import com.pm.wordi.domain.common.MentorRole;
 import com.pm.wordi.domain.user.entity.User;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -25,19 +25,6 @@ public class Mentor extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
-
-//    @OneToMany(mappedBy = "mentor")
-//    private List<MentorKeyword> keywordList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "mentor")
-//    private List<MentorSchedule> scheduleList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "mentor")
-//    private List<Mentoring> mentoringList = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "mentor")
-//    private List<Review> reviewList = new ArrayList<>();
-
 
     private LocalDate startDate;
 
@@ -63,6 +50,10 @@ public class Mentor extends BaseTimeEntity {
 
     @Enumerated(EnumType.STRING)
     private MentorRole role;
+
+    private String schedules;
+
+    private String keywords;
 
     @Enumerated(EnumType.STRING)
     private BaseStatus status;
